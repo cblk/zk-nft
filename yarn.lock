@@ -437,14 +437,14 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@matterlabs/hardhat-zksync-deploy@^0.3.2":
+"@matterlabs/hardhat-zksync-deploy@0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-deploy/-/hardhat-zksync-deploy-0.3.2.tgz#3de14f4b452326e3cf5df7250391ec813c16f3f6"
   integrity sha512-WU+S86LIFtOXNHS8HmIY9cD9zLcl3MNRuMM+60577240YdwfPwApeH2gr1F1d0AkgZtgIB+EmIQW7SxNSaifnA==
   dependencies:
     glob "^8.0.1"
 
-"@matterlabs/hardhat-zksync-solc@^0.3.4":
+"@matterlabs/hardhat-zksync-solc@0.3.4":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-solc/-/hardhat-zksync-solc-0.3.4.tgz#270e20f36263f4fde58fe62f9abca55129b99a98"
   integrity sha512-sd13FuyNBsqtjdKmbwVvqO2HKNt1XxMNV1uGp2r48+ZZjmh3axXoOX/rI9ARIl/owhULCfgdmgcmG/zZR/0keA==
@@ -484,9 +484,9 @@
   integrity sha512-q2Cjp20IB48rEn2NPjR1qxsIQBvFVYW9rFRCFq+bC4RUrn1Ljz3g4wM8uSlgIBZYBi2JMXxmOzFqHraczxq4Ng==
 
 "@openzeppelin/contracts@^4.6.0":
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.6.0.tgz#c91cf64bc27f573836dba4122758b4743418c1b3"
-  integrity sha512-8vi4d50NNya/bQqCmaVzvHNmwHvS0OBKb7HNtuNwEE3scXWrP31fKQoGxNMT+KbzmrNZzatE3QK5p2gFONI/hg==
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.7.0.tgz#3092d70ea60e3d1835466266b1d68ad47035a2d5"
+  integrity sha512-52Qb+A1DdOss8QvJrijYYPSf32GUg2pGaG/yCxtaA3cu4jduouTdg4XZSMLW9op54m1jH7J8hoajhHKOPsoJFw==
 
 "@sentry/core@5.30.0":
   version "5.30.0"
@@ -2900,7 +2900,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zksync-web3@^0.7.7:
+zksync-web3@0.7.7:
   version "0.7.7"
   resolved "https://registry.yarnpkg.com/zksync-web3/-/zksync-web3-0.7.7.tgz#982b617d61ba2933114a9fe38a71c728bee71828"
   integrity sha512-1VhkWPYpsDU1sXzWWtBoHb3eychEWHApk/wXX/zoxJhim4K8g260cvUCe4Y3/1F2q+pbAyxkIorbG/Humw2j7Q==

@@ -2,11 +2,11 @@ import {Contract, ethers, Wallet} from "ethers";
 import {Contract as zkContract, Provider, Wallet as zkWallet} from "zksync-web3";
 
 const PRIVATE_KEY = ''
-const INFURA_KEY = ''
+const INFURA_KEY = '50bfa7c920b045b4b23ebc1a3ab4223b'
 
-const L1_NFT_ADDRESS = "0xc9DF260231829eF06A7aD64feA08AB1EA6c3533c";
-const L2_NFT_ADDRESS = "0x803C3c69437915965eEDC97d1B39351Adcc9a52D";
-const L2_USDC_ADDRESS = "0x54a14D7559BAF2C8e8Fa504E019d32479739018c";
+const L1_NFT_ADDRESS = '';
+const L2_NFT_ADDRESS = '';
+const L2_USDC_ADDRESS = '0x54a14D7559BAF2C8e8Fa504E019d32479739018c';
 
 const L1_NFT_ABI = require("./artifacts/contracts/L1NFT.sol/L1NFT.json").abi;
 const L2_NFT_ABI = require("./artifacts-zk/contracts/L2NFT.sol/L2NFT.json").abi;
@@ -31,6 +31,8 @@ const l2Contract = new zkContract(
 export {
     PRIVATE_KEY,
     INFURA_KEY,
+    L1_NFT_ABI,
+    L2_NFT_ABI,
     L1_NFT_ADDRESS,
     L2_NFT_ADDRESS,
     l1Contract,

@@ -10,10 +10,10 @@ async function main() {
     // We get the contract to deploy
     const L1NFT = await ethers.getContractFactory("L1NFT");
 
-    const contract = await L1NFT.deploy(L2_NFT_ADDRESS);
+    const contract = await L1NFT.deploy();
     await contract.deployed();
 
-    console.log(`L1NFT contract was successfully deployed at ${contract.address}`);
+    console.log(`L1NFT was deployed to ${contract.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

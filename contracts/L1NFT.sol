@@ -8,29 +8,27 @@ import "@matterlabs/zksync-contracts/l1/contracts/zksync/interfaces/IZkSync.sol"
 import "@matterlabs/zksync-contracts/l1/contracts/zksync/Operations.sol";
 
 contract L1NFT is ERC721PresetMinterPauserAutoId {
-    address private _l2Address;
+    address public l2Address;
     mapping(uint32 => mapping(uint256 => bool)) isWithdrew;
 
-    constructor(address l2Address) ERC721PresetMinterPauserAutoId("ZkSync L1 Token", "Z1T", "https://zk-token.com/token/") {
-        _l2Address = l2Address;
-    }
+    constructor() ERC721PresetMinterPauserAutoId("ZkSync L1 Token", "Z1T", "https://zk-token.com/token/") {}
 
-    function setL2Address(address l2) public {
+    function setL2Address(address l2) external {
         require(hasRole(ERC721PresetMinterPauserAutoId.MINTER_ROLE, _msgSender()),
             "L1NFT: must have minter role to set l2 address");
-        _l2Address = l2;
+        l2Address = l2;
     }
 
     function deposit(address _zkSyncAddress, uint256 tokenId) external payable returns (bytes32 txHash) {
-        require(_l2Address != address(0), "L1NFT: l2 address must be set");
+        require(l2Address != address(0), "L1NFT: l2 address must be set");
         require(_isApprovedOrOwner(_msgSender(), tokenId), "L1NFT: caller is not owner nor approved");
 
         IZkSync zksync = IZkSync(_zkSyncAddress);
         txHash = zksync.requestL2Transaction{value : msg.value}(
         // The address of the L2 contract to call
-            _l2Address,
-        // Encoding the calldata for the execute
-            abi.encodeWithSignature("_mint(address, uint256)", ownerOf(tokenId), tokenId),
+            l2Address,
+        // Encoding the call data for the execute
+            abi.encodeWithSignature("deposit(address, uint256)", ownerOf(tokenId), tokenId),
         // Ergs limit
             1000,
         // factory dependencies
@@ -53,13 +51,14 @@ contract L1NFT is ERC721PresetMinterPauserAutoId {
     // The message that was sent from l2
         bytes calldata _message,
     // Merkle proof for the message
-        bytes32[] calldata _proof) public {
-        // check that the message has not been processed yet
-        require(!isWithdrew[_l2BlockNumber][_index]);
+        bytes32[] calldata _proof
+    ) external {
+        require(l2Address != address(0), "L1NFT: l2 address must be set");
+        require(!isWithdrew[_l2BlockNumber][_index], "message can only be processed once");
 
         IZkSync zksync = IZkSync(_zkSyncAddress);
         L2Message memory message = L2Message({
-        sender : _l2Address,
+        sender : l2Address,
         data : _message
         });
 

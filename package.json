@@ -6,26 +6,26 @@
   "author": "MaoWei",
   "license": "MIT",
   "scripts": {
-    "test": "ts-node scripts/l2.ts",
+    "test": "ts-node scripts/l1.ts",
     "build-l1": "hardhat compile --network goerli",
     "build-l2": "hardhat compile",
     "deploy-l1": "hardhat run --network goerli scripts/l1-deploy.ts",
     "deploy-l2": "hardhat deploy-zksync",
+    "set-address": "ts-node scripts/set-address.ts",
     "mint": "ts-node scripts/mint.ts",
-    "withdraw": "ts-node scripts/withdraw.ts"
+    "withdraw": "ts-node scripts/withdraw.ts",
+    "deposit": "ts-node scripts/deposit.ts"
   },
   "devDependencies": {
-    "@matterlabs/hardhat-zksync-deploy": "^0.3.2",
-    "@matterlabs/hardhat-zksync-solc": "^0.3.4",
+    "@matterlabs/hardhat-zksync-deploy": "0.3.2",
+    "@matterlabs/hardhat-zksync-solc": "0.3.4",
     "@matterlabs/zksync-contracts": "^0.2.4",
     "@nomiclabs/hardhat-ethers": "^2.0.6",
     "ethers": "^5.0.0",
     "hardhat": "^2.9.9",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.4",
-    "zksync-web3": "^0.7.7"
-  },
-  "dependencies": {
+    "zksync-web3": "0.7.7",
     "@openzeppelin/contracts": "^4.6.0"
   }
 }
